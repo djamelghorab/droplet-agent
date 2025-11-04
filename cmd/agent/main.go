@@ -62,7 +62,7 @@ func main() {
 	}
 
 	doManagedKeysActioner := actioner.NewDOManagedKeysActioner(sshMgr)
-	metadataWatcher := newMetadataWatcher(&watcher.Conf{SSHPort: sshMgr.SSHDPort()})
+	metadataWatcher := newMetadataWatcher(cfg, &watcher.Conf{SSHPort: sshMgr.SSHDPort()})
 	metadataWatcher.RegisterActioner(doManagedKeysActioner)
 	infoUpdater := updater.NewAgentInfoUpdater()
 
