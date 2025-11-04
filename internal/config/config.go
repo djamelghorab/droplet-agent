@@ -51,8 +51,6 @@ type Conf struct {
 	DebugMode bool
 	UtilMode  bool
 
-	UseWebWatcher bool
-
 	CustomSSHDPort              uint16
 	CustomSSHDCfgFile           string
 	AuthorizedKeysCheckInterval time.Duration
@@ -81,7 +79,6 @@ func Init() *Conf {
 
 	fs.BoolVar(&cfg.UseSyslog, "syslog", false, "Use syslog service for logging")
 	fs.BoolVar(&cfg.DebugMode, "debug", false, "Turn on debug mode")
-	fs.BoolVar(&cfg.UseWebWatcher, "web-watcher", false, "Use the web-based metadata watcher (Linux only)")
 	var port uint
 	fs.UintVar(&port, "sshd_port", 0, "The port sshd is binding to")
 	fs.StringVar(&cfg.CustomSSHDCfgFile, "sshd_config", "", "The location of sshd_config")
